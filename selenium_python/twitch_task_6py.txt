@@ -1,0 +1,21 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By as By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+
+url = 'https://www.twitch.tv/'
+options = Options()
+options.page_load_strategy = 'none'
+driver = webdriver.Chrome()
+driver.get(url)
+
+try:
+    wait = WebDriverWait(driver, 20)
+    button = driver.find_element(By.CSS_SELECTOR,'div.tw-core-button-label-text')
+    button.click()
+    print(f'button.tag_name = {button.tag_name}')
+except:
+    pass
+finally:
+    driver.quit()

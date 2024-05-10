@@ -1,0 +1,21 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By as By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+url = 'https://www.twitch.tv/directory/all/'
+driver = webdriver.Chrome()
+driver.get(url)
+
+
+input_search = driver.find_element(By.CSS_SELECTOR,'input.tw-input--large')
+input_search.click()
+input_search.send_keys('glasses'+Keys.ENTER)
+
+wait = WebDriverWait(driver, 20)
+results = wait.until((EC.presence_of_all_elements_located((By.TAG_NAME,'strong'))))
+for result in results:
+    print(f'result.text = {result.text}')
+
+driver.quit()

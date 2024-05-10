@@ -1,0 +1,1760 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Dictionary creation."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Dictionary Literals\n",
+      "===================\n",
+      "{}\n",
+      "{1: 2}\n",
+      "{1: 1, 2: 4, 3: 9, 4: 16}\n",
+      "{'p': 'o', 'y': 'h', 't': 'n', 'h': 't', 'o': 'y', 'n': 'p'}\n",
+      "{'Rixner': True, 'Warren': False}\n",
+      "{'China': ['Shanghai', 'Beijing'], 'USA': ['New York', 'Los Angeles'], 'Spain': ['Madrid', 'Barcelona'], 'Australia': ['Sydney', 'Melbourne'], 'Texas': ['Houston', 'San Antonio']}\n",
+      "\n",
+      "Creating Dictionaries\n",
+      "=====================\n",
+      "{}\n",
+      "{1: 'one', 2: 'two', 3: 'three'}\n",
+      "{'p': 'o', 'y': 'h', 't': 'n', 'h': 't', 'o': 'y', 'n': 'p'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Dictionary creation.\n",
+    "\"\"\"\n",
+    "\n",
+    "print(\"Dictionary Literals\")\n",
+    "print(\"===================\")\n",
+    "\n",
+    "# Dictionary literals\n",
+    "empty = {}\n",
+    "print(empty)\n",
+    "\n",
+    "simple = {1: 2}\n",
+    "print(simple)\n",
+    "\n",
+    "squares = {1: 1, 2: 4, 3: 9, 4: 16}\n",
+    "print(squares)\n",
+    "\n",
+    "cipher = {'p': 'o', 'y': 'h', 't': 'n',\n",
+    "          'h': 't', 'o': 'y', 'n': 'p'} \n",
+    "print(cipher)\n",
+    "\n",
+    "goodinstructors = {'Rixner': True, 'Warren': False}\n",
+    "print(goodinstructors)\n",
+    "\n",
+    "cities = {'China': ['Shanghai', 'Beijing'],\n",
+    "          'USA': ['New York', 'Los Angeles'],\n",
+    "          'Spain': ['Madrid', 'Barcelona'],\n",
+    "          'Australia': ['Sydney', 'Melbourne'],\n",
+    "          'Texas': ['Houston', 'San Antonio']}\n",
+    "print(cities)\n",
+    "\n",
+    "print(\"\")\n",
+    "print(\"Creating Dictionaries\")\n",
+    "print(\"=====================\")\n",
+    "\n",
+    "empty2 = dict()\n",
+    "print(empty2)\n",
+    "\n",
+    "data = [(1, 'one'), (2, 'two'), (3, 'three')]\n",
+    "names = dict(data)\n",
+    "print(names)\n",
+    "\n",
+    "cipher2 = dict(cipher)\n",
+    "print(cipher2)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Dictionary lookup and update."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Dictionary Lookup\n",
+      "=================\n",
+      "{'p': 'o', 'y': 'h', 't': 'n', 'h': 't', 'o': 'y', 'n': 'p'}\n",
+      "n\n",
+      "p\n",
+      "python ohntyp\n",
+      "n\n",
+      "None\n",
+      "z\n",
+      "\n",
+      "Dictionary Update\n",
+      "=================\n",
+      "{'p': 'o', 'y': 'h', 't': 'n', 'h': 't', 'o': 'y', 'n': 'p'}\n",
+      "{'p': 'q', 'y': 'h', 't': 'n', 'h': 't', 'o': 'y', 'n': 'p'}\n",
+      "{'p': 'q', 'y': 'h', 't': 'n', 'h': 't', 'o': 'y', 'n': 'p', 'r': 'z'}\n",
+      "python ohntyp qhntyp\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Dictionary lookup and update.\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "print(\"Dictionary Lookup\")\n",
+    "print(\"=================\")\n",
+    "\n",
+    "cipher = {'p': 'o', 'y': 'h', 't': 'n',\n",
+    "          'h': 't', 'o': 'y', 'n': 'p'} \n",
+    "print(cipher)\n",
+    "\n",
+    "# Use indexing with keys to access values\n",
+    "print(cipher['t'])\n",
+    "print(cipher['n'])\n",
+    "\n",
+    "def encrypt(cipher, word):\n",
+    "    \"\"\"encrypt word using cipher\"\"\"\n",
+    "    encrypted = \"\"\n",
+    "    for char in word:\n",
+    "        encrypted += cipher[char]\n",
+    "    return encrypted\n",
+    "\n",
+    "python = \"python\"\n",
+    "enc = encrypt(cipher, python)\n",
+    "print(python, enc)\n",
+    "\n",
+    "# It is an error to use a non-existent key\n",
+    "# print(cipher[1])\n",
+    "\n",
+    "# Use .get when you are unsure if the key exists\n",
+    "print(cipher.get('t'))\n",
+    "print(cipher.get(1))\n",
+    "print(cipher.get(1, 'z'))\n",
+    "\n",
+    "print(\"\")\n",
+    "print(\"Dictionary Update\")\n",
+    "print(\"=================\")\n",
+    "\n",
+    "print(cipher)\n",
+    "\n",
+    "# Modify an existing key->value mapping\n",
+    "cipher['p'] = 'q'\n",
+    "print(cipher)\n",
+    "\n",
+    "# Create a new key->value mapping\n",
+    "cipher['r'] = 'z'\n",
+    "print(cipher)\n",
+    "\n",
+    "enc2 = encrypt(cipher, python)\n",
+    "print(python, enc, enc2)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Checking for keys in a dictionary."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Using 'in'\n",
+      "==========\n",
+      "True\n",
+      "True\n",
+      "False\n",
+      "False\n",
+      "True\n",
+      "False\n",
+      "\n",
+      "Protecting from Errors\n",
+      "======================\n",
+      "8 -3\n",
+      "14 not in mapping\n",
+      "22 17\n",
+      "25 not in mapping\n",
+      "Issues with Keys\n",
+      "================\n",
+      "{4.0: 2, 'a': 3, True: 'true', False: 9}\n",
+      "{4.0: 2, 'a': 3, True: 7, False: 9}\n",
+      "{4.0: 2, 'a': 3, True: 7, False: 'false'}\n",
+      "{4.0: 7, 'a': 3, True: 7, False: 'false'}\n",
+      "{4.0: 7, 'a': 3, True: 7, False: 'false', 'A': 'abc'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Checking for keys in a dictionary.\n",
+    "\"\"\"\n",
+    "\n",
+    "print(\"Using 'in'\")\n",
+    "print(\"==========\")\n",
+    "\n",
+    "mapping = {1: 5, 8: -3, 7: 22, 4: 13, 22: 17}\n",
+    "\n",
+    "# Keys\n",
+    "print(1 in mapping)\n",
+    "print(8 in mapping)\n",
+    "\n",
+    "# Values\n",
+    "print(5 in mapping)\n",
+    "print(-3 in mapping)\n",
+    "\n",
+    "# Both\n",
+    "print(22 in mapping)\n",
+    "\n",
+    "# Neither\n",
+    "print(82 in mapping)\n",
+    "\n",
+    "print(\"\")\n",
+    "\n",
+    "print(\"Protecting from Errors\")\n",
+    "print(\"======================\")\n",
+    "\n",
+    "keys = [8, 14, 22, 25]\n",
+    "\n",
+    "#for key in keys:\n",
+    "#    print(key, mapping[key])\n",
+    "\n",
+    "for key in keys:\n",
+    "    if key in mapping:\n",
+    "        print(key, mapping[key])\n",
+    "    else:\n",
+    "        print(\"{} not in mapping\".format(key))\n",
+    "\n",
+    "\n",
+    "print(\"Issues with Keys\")\n",
+    "print(\"================\")\n",
+    "        \n",
+    "# Be careful with what you use as keys!\n",
+    "# If all keys are of the same type, you won't run\n",
+    "#  into these issues\n",
+    "mapping = {4.0: 2, 'a': 3, True: 'true', False: 9}\n",
+    "print(mapping)\n",
+    "\n",
+    "mapping[1] = 7\n",
+    "print(mapping)\n",
+    "\n",
+    "mapping[0] = 'false'\n",
+    "print(mapping)\n",
+    "\n",
+    "mapping[4] = 7\n",
+    "print(mapping)\n",
+    "\n",
+    "mapping['A'] = 'abc'\n",
+    "print(mapping)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# # Example code for working with dictionary keys"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'Joe': 1, 'Scott': 2, 'John': 3}\n",
+      "{('Joe', 'Warren'): 1, ('Scott', 'Rixner'): 2, ('John', 'Greiner'): 3}\n",
+      "1\n",
+      "2\n"
+     ]
+    },
+    {
+     "ename": "KeyError",
+     "evalue": "'Stephen'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[4], line 19\u001b[0m\n\u001b[0;32m     17\u001b[0m \u001b[38;5;28mprint\u001b[39m(simple_dict[\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mJoe\u001b[39m\u001b[38;5;124m\"\u001b[39m])\n\u001b[0;32m     18\u001b[0m \u001b[38;5;28mprint\u001b[39m(simple_dict[\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mScott\u001b[39m\u001b[38;5;124m\"\u001b[39m])\n\u001b[1;32m---> 19\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[43msimple_dict\u001b[49m\u001b[43m[\u001b[49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mStephen\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m]\u001b[49m)\n\u001b[0;32m     20\u001b[0m \u001b[38;5;28mprint\u001b[39m(good_dict[(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mJoe\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mWarren\u001b[39m\u001b[38;5;124m\"\u001b[39m)])\n\u001b[0;32m     21\u001b[0m \u001b[38;5;28mprint\u001b[39m(good_dict[(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mJohn\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mGreiner\u001b[39m\u001b[38;5;124m\"\u001b[39m)])\n",
+      "\u001b[1;31mKeyError\u001b[0m: 'Stephen'"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Example code for working with dictionary keys\n",
+    "\"\"\"\n",
+    "\n",
+    "# Three example of dictionaries - note that dictionary keys in Python must be immutable\n",
+    "simple_dict = {\"Joe\" : 1, \"Scott\" : 2, \"John\" : 3}\n",
+    "print(simple_dict)\n",
+    "\n",
+    "# bad_dict = {[\"Joe\", \"Warren\"] : 1, [\"Scott\", \"Rixner\"] : 2, [\"John\", \"Greiner\"] : 3}\n",
+    "# print(bad_dict)\n",
+    "\n",
+    "good_dict = {(\"Joe\", \"Warren\") : 1, (\"Scott\", \"Rixner\") : 2, (\"John\", \"Greiner\") : 3}\n",
+    "print(good_dict)\n",
+    "\n",
+    "\n",
+    "# Examples of dictionary lookup\n",
+    "print(simple_dict[\"Joe\"])\n",
+    "print(simple_dict[\"Scott\"])\n",
+    "print(simple_dict[\"Stephen\"])\n",
+    "print(good_dict[(\"Joe\", \"Warren\")])\n",
+    "print(good_dict[(\"John\", \"Greiner\")])\n",
+    "\n",
+    "# Custom code for looking up keys that may not always be present\n",
+    "\n",
+    "def lookup(my_dict, my_key, default_value=None):\n",
+    "    \"\"\"\n",
+    "    Given dictionary my_dict and key my_key, \n",
+    "    return my_dict[my_key] if my_key is in my_dict\n",
+    "    otherwise return default_value\n",
+    "    \"\"\"\n",
+    "    if my_key in my_dict:\n",
+    "        return my_dict[my_key]\n",
+    "    else:\n",
+    "        return default_value\n",
+    "\n",
+    "simple_dict = {\"Joe\" : 1, \"Scott\" : 2, \"John\" : 3}\n",
+    "print(lookup(simple_dict, \"Joe\", -1))\n",
+    "print(lookup(simple_dict, \"Stephen\", -1))\n",
+    "print(lookup(simple_dict, \"Stephen\"))\n",
+    "\n",
+    "# Built-in Python dictionary method get() in place of lookup()\n",
+    "simple_dict = {\"Joe\" : 1, \"Scott\" : 2, \"John\" : 3}\n",
+    "print(simple_dict.get(\"Joe\", -1))\n",
+    "print(simple_dict.get(\"Stephen\", -1))\n",
+    "print(simple_dict.get(\"Stephen\"))\t\t# default value if parameter is omitted is None\n",
+    "\n",
+    "# Note that we can acheive the same effect in lookup() \n",
+    "# via default parameter definition of the form \"default_value = None\"\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n",
+      "False\n",
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "def is_empty(my_dict):\n",
+    "    \"\"\"\n",
+    "    Given a dictionary my_dict, return True if the \n",
+    "    dictionary is empty and False otherwise\n",
+    "    \"\"\"\n",
+    "\n",
+    "    # Enter code here\n",
+    "    return len(my_dict) == 0\n",
+    "\n",
+    "# Testing code\n",
+    "print(is_empty({}))\n",
+    "print(is_empty({0 : 1}))\n",
+    "print(is_empty({\"Joe\" : 1, \"Scott\" : 2}))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Write a function value_sum(my_dict) that\n",
+    "returns the sum of the values in a dictionary\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "def value_sum(my_dict):\n",
+    "    \"\"\"\n",
+    "    Given a dictionary my_dict whose values are numbers, return \n",
+    "    the sums of the values in my_dict\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    # Enter code here\n",
+    "    value_sum = 0\n",
+    "    for key in my_dict:\n",
+    "        value_sum += my_dict[key]\n",
+    "    return value_sum\n",
+    "\n",
+    "# Testing code\n",
+    "print(value_sum({}))\n",
+    "print(value_sum({0 : 1}))\n",
+    "print(value_sum({\"Joe\" : 1, \"Scott\" : 2, \"John\" : 4}))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{}\n",
+      "{0: 1}\n",
+      "{'Joe': 1, 'Scott': 2, 'John': 4}\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Write a function make_dict(key_value_list) that\n",
+    "takes a list of tuples (key, value) and returns a \n",
+    "dictionary with these keys and values\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "def make_dict(key_value_list):\n",
+    "    \"\"\"\n",
+    "    Given a list of tuples of the form (key, value), \n",
+    "    return a dictionary with the corresponding keys and values\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    # Enter code here\n",
+    "    answer = {}\n",
+    "    for key, value in key_value_list:\n",
+    "        answer[key] = value\n",
+    "    return answer\n",
+    "\n",
+    "# Testing code\n",
+    "print(make_dict([]))\n",
+    "print(make_dict([(0, 1)]))\n",
+    "print(make_dict([(\"Joe\", 1), (\"Scott\", 2), (\"John\", 4)]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Output for part 1\n",
+      "vif\n",
+      "hunnybtygnd\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Part 1 - Use a dictionary that represents a substition cipher to \n",
+    "# encrypt a phrase\n",
+    "\n",
+    "# Example of a cipher dictionary 26 lower case letters plus the blank\n",
+    "CIPHER_DICT = {'e': 'u', 'b': 's', 'k': 'x', 'u': 'q', 'y': 'c', 'm': 'w', 'o': 'y', 'g': 'f', 'a': 'm', 'x': 'j', 'l': 'n', 's': 'o', 'r': 'g', 'i': 'i', 'j': 'z', 'c': 'k', 'f': 'p', ' ': 'b', 'q': 'r', 'z': 'e', 'p': 'v', 'v': 'l', 'h': 'h', 'd': 'd', 'n': 'a', 't': ' ', 'w': 't'}\n",
+    "\n",
+    "def encrypt(phrase, cipher_dict):\n",
+    "    \"\"\"\n",
+    "    Take a string phrase (lower case plus blank) \n",
+    "    and encypt it using the dictionary cipher_dict\n",
+    "    \"\"\"\n",
+    "    answer = \"\"\n",
+    "    for letter in phrase:\n",
+    "        answer += cipher_dict[letter]\n",
+    "    return answer\n",
+    "\n",
+    "# Tests\n",
+    "print(\"Output for part 1\")\n",
+    "print(encrypt(\"pig\", CIPHER_DICT))\n",
+    "print(encrypt(\"hello world\", CIPHER_DICT))\n",
+    "print()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Output for part 1\n",
+      "vif\n",
+      "hunnybtygnd\n",
+      "\n",
+      "Output for part 2\n",
+      "{'u': 'e', 's': 'b', 'x': 'k', 'q': 'u', 'c': 'y', 'w': 'm', 'y': 'o', 'f': 'g', 'm': 'a', 'j': 'x', 'n': 'l', 'o': 's', 'g': 'r', 'i': 'i', 'z': 'j', 'k': 'c', 'p': 'f', 'b': ' ', 'r': 'q', 'e': 'z', 'v': 'p', 'l': 'v', 'h': 'h', 'd': 'd', 'a': 'n', ' ': 't', 't': 'w'}\n",
+      "pig\n",
+      "hello world\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution for parts 1-2\n",
+    "Using substitution ciphers to encrypt and decrypt plain text\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "# Part 1 - Use a dictionary that represents a substition cipher to \n",
+    "# encrypt a phrase\n",
+    "\n",
+    "# Example of a cipher dictionary 26 lower case letters plus the blank\n",
+    "CIPHER_DICT = {'e': 'u', 'b': 's', 'k': 'x', 'u': 'q', 'y': 'c', 'm': 'w', 'o': 'y', 'g': 'f', 'a': 'm', 'x': 'j', 'l': 'n', 's': 'o', 'r': 'g', 'i': 'i', 'j': 'z', 'c': 'k', 'f': 'p', ' ': 'b', 'q': 'r', 'z': 'e', 'p': 'v', 'v': 'l', 'h': 'h', 'd': 'd', 'n': 'a', 't': ' ', 'w': 't'}\n",
+    "\n",
+    "def encrypt(phrase, cipher_dict):\n",
+    "    \"\"\"\n",
+    "    Take a string phrase (lower case plus blank) \n",
+    "    and encypt it using the dictionary cipher_dict\n",
+    "    \"\"\"\n",
+    "    answer = \"\"\n",
+    "    for letter in phrase:\n",
+    "        answer += cipher_dict[letter]\n",
+    "    return answer\n",
+    "\n",
+    "# Tests\n",
+    "print(\"Output for part 1\")\n",
+    "print(encrypt(\"pig\", CIPHER_DICT))\n",
+    "print(encrypt(\"hello world\", CIPHER_DICT))\n",
+    "print()\n",
+    "\n",
+    "# Output for part 1\n",
+    "#vif\n",
+    "#hunnybtygnd\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "# Part 2 - Compute an inverse substitution cipher that decrypts\n",
+    "# an encrypted phrase\n",
+    "\n",
+    "def make_decipher_dict(cipher_dict):\n",
+    "    \"\"\"\n",
+    "    Take a cipher dictionary and return the cipher\n",
+    "    dictionary that undoes the cipher\n",
+    "    \"\"\"    \n",
+    "    decipher_dict = {}\n",
+    "    for letter in cipher_dict:\n",
+    "        decipher_dict[cipher_dict[letter]] = letter\n",
+    "    return decipher_dict\n",
+    "\n",
+    "DECIPHER_DICT = make_decipher_dict(CIPHER_DICT)\n",
+    "\n",
+    "# Tests - note that applying encrypting with the cipher and decipher dicts\n",
+    "# should return the original results\n",
+    "print(\"Output for part 2\")\n",
+    "print(DECIPHER_DICT)\n",
+    "print(encrypt(encrypt(\"pig\", CIPHER_DICT), DECIPHER_DICT))\t\t\t      # Uncomment when testing\n",
+    "print(encrypt(encrypt(\"hello world\", CIPHER_DICT), DECIPHER_DICT))\t# Uncomment when testing\n",
+    "print()\n",
+    "\n",
+    "# Output for part 2 - note order of items in dictionary is not important\n",
+    "#{'p': 'f', 'n': 'l', 'm': 'a', 'i': 'i', 'd': 'd', 'x': 'k', 'b': ' ', 'l': 'v', 'f': 'g', 'o': 's', 'u': 'e', 'a': 'n', 'c': 'y', 'r': 'q', 'e': 'z', 'k': 'c', 'w': 'm', 'g': 'r', 'y': 'o', ' ': 't', 'h': 'h', 'v': 'p', 'j': 'x', 'q': 'u', 't': 'w', 's': 'b', 'z': 'j'}\n",
+    "#pig\n",
+    "#hello world\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Output for part 1\n",
+      "vif\n",
+      "hunnybtygnd\n",
+      "\n",
+      "Output for part 2\n",
+      "{'u': 'e', 's': 'b', 'x': 'k', 'q': 'u', 'c': 'y', 'w': 'm', 'y': 'o', 'f': 'g', 'm': 'a', 'j': 'x', 'n': 'l', 'o': 's', 'g': 'r', 'i': 'i', 'z': 'j', 'k': 'c', 'p': 'f', 'b': ' ', 'r': 'q', 'e': 'z', 'v': 'p', 'l': 'v', 'h': 'h', 'd': 'd', 'a': 'n', ' ': 't', 't': 'w'}\n",
+      "pig\n",
+      "hello world\n",
+      "\n",
+      "Output for part 3\n",
+      "{}\n",
+      "{'c': 't', 'a': 'a', 't': 'c'}\n",
+      "{'a': 'p', 'b': 'y', 'c': 'g', 'd': 'n', 'e': 'f', 'f': 'r', 'g': 'w', 'h': ' ', 'i': 'b', 'j': 'k', 'k': 'd', 'l': 'e', 'm': 'x', 'n': 'l', 'o': 'z', 'p': 's', 'q': 'v', 'r': 'o', 's': 'a', 't': 'h', 'u': 'm', 'v': 'c', 'w': 'u', 'x': 'i', 'y': 'q', 'z': 'j', ' ': 't'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution for parts 1-3\n",
+    "Using substitution ciphers to encrypt and decrypt plain text\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "# Part 1 - Use a dictionary that represents a substition cipher to \n",
+    "# encrypt a phrase\n",
+    "\n",
+    "# Example of a cipher dictionary 26 lower case letters plus the blank\n",
+    "CIPHER_DICT = {'e': 'u', 'b': 's', 'k': 'x', 'u': 'q', 'y': 'c', 'm': 'w', 'o': 'y', 'g': 'f', 'a': 'm', 'x': 'j', 'l': 'n', 's': 'o', 'r': 'g', 'i': 'i', 'j': 'z', 'c': 'k', 'f': 'p', ' ': 'b', 'q': 'r', 'z': 'e', 'p': 'v', 'v': 'l', 'h': 'h', 'd': 'd', 'n': 'a', 't': ' ', 'w': 't'}\n",
+    "\n",
+    "def encrypt(phrase, cipher_dict):\n",
+    "    \"\"\"\n",
+    "    Take a string phrase (lower case plus blank) \n",
+    "    and encypt it using the dictionary cipher_dict\n",
+    "    \"\"\"\n",
+    "    answer = \"\"\n",
+    "    for letter in phrase:\n",
+    "        answer += cipher_dict[letter]\n",
+    "    return answer\n",
+    "\n",
+    "# Tests\n",
+    "print(\"Output for part 1\")\n",
+    "print(encrypt(\"pig\", CIPHER_DICT))\n",
+    "print(encrypt(\"hello world\", CIPHER_DICT))\n",
+    "print()\n",
+    "\n",
+    "# Output for part 1\n",
+    "#vif\n",
+    "#hunnybtygnd\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "# Part 2 - Compute an inverse substitution cipher that decrypts\n",
+    "# an encrypted phrase\n",
+    "\n",
+    "def make_decipher_dict(cipher_dict):\n",
+    "    \"\"\"\n",
+    "    Take a cipher dictionary and return the cipher\n",
+    "    dictionary that undoes the cipher\n",
+    "    \"\"\"    \n",
+    "    decipher_dict = {}\n",
+    "    for letter in cipher_dict:\n",
+    "        decipher_dict[cipher_dict[letter]] = letter\n",
+    "    return decipher_dict\n",
+    "\n",
+    "DECIPHER_DICT = make_decipher_dict(CIPHER_DICT)\n",
+    "\n",
+    "# Tests - note that applying encrypting with the cipher and decipher dicts\n",
+    "# should return the original results\n",
+    "print(\"Output for part 2\")\n",
+    "print(DECIPHER_DICT)\n",
+    "print(encrypt(encrypt(\"pig\", CIPHER_DICT), DECIPHER_DICT))\n",
+    "print(encrypt(encrypt(\"hello world\", CIPHER_DICT), DECIPHER_DICT))\n",
+    "print()\n",
+    "\n",
+    "# Output for part 2 - note order of items in dictionary is not important\n",
+    "#{'p': 'f', 'n': 'l', 'm': 'a', 'i': 'i', 'd': 'd', 'x': 'k', 'b': ' ', 'l': 'v', 'f': 'g', 'o': 's', 'u': 'e', 'a': 'n', 'c': 'y', 'r': 'q', 'e': 'z', 'k': 'c', 'w': 'm', 'g': 'r', 'y': 'o', ' ': 't', 'h': 'h', 'v': 'p', 'j': 'x', 'q': 'u', 't': 'w', 's': 'b', 'z': 'j'}\n",
+    "#pig\n",
+    "#hello world\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "# Part 3 - Create a random cipher dictionary\n",
+    "\n",
+    "import random\n",
+    "\n",
+    "def make_cipher_dict(alphabet):\n",
+    "    \"\"\"\n",
+    "    Given a string of unique characters, compute a random \n",
+    "    cipher dictionary for these characters\n",
+    "    \"\"\"\n",
+    "    letters= list(alphabet)\n",
+    "    shuffled_letters = list(alphabet)\n",
+    "    random.shuffle(shuffled_letters)\n",
+    "    \n",
+    "    cipher_dict = {}\n",
+    "    for idx in range(len(alphabet)):\n",
+    "        letter = letters[idx]\n",
+    "        shuffled_letter = shuffled_letters[idx]\n",
+    "        cipher_dict[letter] = shuffled_letter\n",
+    "    return cipher_dict\n",
+    "\n",
+    "# Tests\n",
+    "print(\"Output for part 3\")\n",
+    "print(make_cipher_dict(\"\"))\n",
+    "print(make_cipher_dict(\"cat\"))\n",
+    "print(make_cipher_dict(\"abcdefghijklmnopqrstuvwxyz \"))\n",
+    "\n",
+    "# Output for part 3 -  note that answers are randomized\n",
+    "#{}\n",
+    "#{'a': 'a', 't': 'c', 'c': 't'}\n",
+    "#{'a': 'h', 'l': 'u', 'u': 'q', 'b': 'v', 'y': 'a', 'm': 'r', 'p': 'j', 'k': 'e', 'n': 'p', 't': 'x', 'd': 'o', 'c': 'c', 'w': ' ', 'f': 'd', 'r': 'z', 'v': 'l', 's': 'y', 'e': 'b', 'o': 'i', 'x': 'm', 'h': 's', 'i': 'w', 'q': 'g', 'g': 'n', 'j': 'f', 'z': 'k', ' ': 't'}\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Sandeep'"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dict = {\"father\":\"Sandeep\",\"mother\":\"Nalini\"}\n",
+    "dict[\"father\"]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'a': 0, 'b': 0, 'c': 0, 'd': 1, 'e': 1, 'f': 0, 'g': 0, 'h': 1, 'i': 0, 'j': 0, 'k': 0, 'l': 3, 'm': 0, 'n': 0, 'o': 2, 'p': 0, 'q': 0, 'r': 1, 's': 0, 't': 0, 'u': 0, 'v': 0, 'w': 1, 'x': 0, 'y': 0, 'z': 0}\n",
+      "{'a': 11, 'b': 2, 'c': 5, 'd': 5, 'e': 20, 'f': 6, 'g': 4, 'h': 1, 'i': 12, 'j': 0, 'k': 0, 'l': 3, 'm': 11, 'n': 13, 'o': 14, 'p': 3, 'q': 1, 'r': 13, 's': 17, 't': 11, 'u': 4, 'v': 3, 'w': 3, 'x': 1, 'y': 3, 'z': 0}\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'e'"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Write a function count_letters(word_list)\n",
+    "count_letters(word_list) that takes as input a list of words that are composed entirely of lower case letters . \n",
+    "This function should return the lower case letter that appears most frequently (total number of occurrences) \n",
+    "in the words in word_list word_list. (In the case of ties, return the earliest letter in alphabetical order.)\n",
+    "\n",
+    "The Python code snippet below represents a start at implementing \n",
+    "count_letters\n",
+    "count_letters using a dictionary \n",
+    "letter_count\n",
+    "letter_count whose keys are the lower case letters and whose values are the corresponding number of occurrences of each letter in the strings in \n",
+    "word_list\n",
+    "word_list.\n",
+    "\"\"\"\n",
+    "def count_letters(word_list):\n",
+    "    \"\"\" See question description \"\"\"\n",
+    "    \n",
+    "    ALPHABET = \"abcdefghijklmnopqrstuvwxyz\"\n",
+    "\n",
+    "    letter_count = {}\n",
+    "    for letter in ALPHABET:\n",
+    "        letter_count[letter] = 0\n",
+    "\n",
+    "    word_str = ''.join(word_list)\n",
+    "    for letter in word_str:\n",
+    "        letter_count[letter] += 1\n",
+    "    # print(letter_count)\n",
+    "    max_repeated_letter = max(letter_count,key=letter_count.get)\n",
+    "    return max_repeated_letter\n",
+    "count_letters([\"hello\", \"world\"])\n",
+    "\n",
+    "monty_quote = \"listen strange women lying in ponds distributing swords is no basis for a system of government supreme executive power derives from a mandate from the masses not from some farcical aquatic ceremony\"\n",
+    "monty_words = monty_quote.split(\" \")\n",
+    "count_letters(monty_words)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Iterating over dictionaries."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\"\"\"\n",
+    "Iterating over dictionaries.\n",
+    "\"\"\"\n",
+    "\n",
+    "# Mapping from various cities to their country\n",
+    "capitals = {'USA': 'Washington, D.C.',\n",
+    "            'China': 'Beijing',\n",
+    "            'France': 'Paris',\n",
+    "            'England': 'London',\n",
+    "            'Italy': 'Rome',\n",
+    "            'Russia': 'Moscow',\n",
+    "            'Australia': 'Canberra',\n",
+    "            'Peru': 'Lima',\n",
+    "            'Japan': 'Tokyo'}\n",
+    "\n",
+    "print(\"Direct Iteration\")\n",
+    "print(\"================\")\n",
+    "\n",
+    "for country in capitals:\n",
+    "    print(\"{}, {}\".format(capitals[country], country))\n",
+    "\n",
+    "print(\"\")\n",
+    "\n",
+    "print(\"Iteration over Keys\")\n",
+    "print(\"===================\")\n",
+    "\n",
+    "for country in capitals.keys():\n",
+    "    print(\"{}, {}\".format(capitals[country], country))\n",
+    "\n",
+    "print(\"\")\n",
+    "\n",
+    "print(\"Iteration over Values\")\n",
+    "print(\"=====================\")\n",
+    "\n",
+    "for city in capitals.values():\n",
+    "    print(\"Capital city: {}\".format(city))\n",
+    "\n",
+    "print(\"\")\n",
+    "\n",
+    "print(\"Iteration over Items\")\n",
+    "print(\"===================\")\n",
+    "\n",
+    "for country, city in capitals.items():\n",
+    "    print(\"{}, {}\".format(city, country))\n",
+    "\n",
+    "print(\"\")\n",
+    "\n",
+    "print(\"Checking Membership\")\n",
+    "print(\"===================\")\n",
+    "\n",
+    "print('England' in capitals)\n",
+    "print('Lima' in capitals)\n",
+    "\n",
+    "print('Moscow' in capitals.keys())\n",
+    "print('Italy' in capitals.keys())\n",
+    "\n",
+    "print('Houston' in capitals.values())\n",
+    "print('Beijing' in capitals.values())\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Tabular data as a nested list."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Language              2017  2012  2007  2002  1997  1992  1987\n",
+      "--------------------------------------------------------------\n",
+      "Java                     1     2     1     1    15     0     0\n",
+      "C                        2     1     2     2     1     1     1\n",
+      "C++                      3     3     3     3     2     2     5\n",
+      "C#                       4     4     7    13     0     0     0\n",
+      "Python                   5     7     6    11    27     0     0\n",
+      "Visual Basic .NET        6    17     0     0     0     0     0\n",
+      "PHP                      7     6     4     5     0     0     0\n",
+      "JavaScript               8     9     8     7    23     0     0\n",
+      "Perl                     9     8     5     4     4    10     0\n",
+      "\n",
+      "Python's popularity in 1997: 27\n",
+      "Python's popularity in 1997: 27\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Tabular data as a nested list.\n",
+    "\"\"\"\n",
+    "\n",
+    "# Programming language popularity, from www.tiobe.com/tiobe-index\n",
+    "popularity = [[\"Language\", 2017, 2012, 2007, 2002, 1997, 1992, 1987],\n",
+    "              [\"Java\", 1, 2, 1, 1, 15, 0, 0],\n",
+    "              [\"C\", 2, 1, 2, 2, 1, 1, 1],\n",
+    "              [\"C++\", 3, 3, 3, 3, 2, 2, 5],\n",
+    "              [\"C#\", 4, 4, 7, 13, 0, 0, 0],\n",
+    "              [\"Python\", 5, 7, 6, 11, 27, 0, 0],\n",
+    "              [\"Visual Basic .NET\", 6, 17, 0, 0, 0, 0, 0],\n",
+    "              [\"PHP\", 7, 6, 4, 5, 0, 0, 0],\n",
+    "              [\"JavaScript\", 8, 9, 8, 7, 23, 0, 0],\n",
+    "              [\"Perl\", 9, 8, 5, 4, 4, 10, 0]]\n",
+    "\n",
+    "format_string = \"{:<20}  {:>4}  {:>4}  {:>4}  {:>4}  {:>4}  {:>4}  {:>4}\"\n",
+    "\n",
+    "# Display langauges table       \n",
+    "headers = popularity[0]\n",
+    "header_row = format_string.format(*headers)\n",
+    "print(header_row)\n",
+    "print(\"-\" * len(header_row))\n",
+    "\n",
+    "for language in popularity[1:]:\n",
+    "    print(format_string.format(*language))\n",
+    "\n",
+    "print(\"\")\n",
+    "    \n",
+    "# Finding/selecting items\n",
+    "\n",
+    "# What was Python's popularity in 1997?\n",
+    "print(\"Python's popularity in 1997:\", popularity[5][5])\n",
+    "\n",
+    "def find_col(table, col):\n",
+    "    \"\"\"\n",
+    "    Return column index with col header in table\n",
+    "    or -1 if col is not in table\n",
+    "    \"\"\"\n",
+    "    return table[0].index(col)\n",
+    "\n",
+    "def find_row(table, row):\n",
+    "    \"\"\"\n",
+    "    Return row index with row header in table\n",
+    "    or -1 if row is not in table\n",
+    "    \"\"\"\n",
+    "    for idx in range(len(table)):\n",
+    "        if table[idx][0] == row:\n",
+    "            return idx\n",
+    "    return -1\n",
+    "    \n",
+    "idx1997 = find_col(popularity, 1997)\n",
+    "idxpython = find_row(popularity, \"Python\")\n",
+    "print(\"Python's popularity in 1997:\", popularity[idxpython][idx1997])\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "popularity[0].index(2017)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Tabular data as nested dictionaries."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Product               Vendor        Type               Vulnerabilities\n",
+      "----------------------------------------------------------------------\n",
+      "Android               Google        Operating System        564\n",
+      "Linux Kernel          Linux         Operating System        367\n",
+      "Imagemagick           Imagemagick   Application             307\n",
+      "IPhone OS             Apple         Operating System        290\n",
+      "Mac OS X              Apple         Operating System        210\n",
+      "Windows 10            Microsoft     Operating System        195\n",
+      "Windows Server 2008   Microsoft     Operating System        187\n",
+      "Windows Server 2016   Microsoft     Operating System        183\n",
+      "Windows Server 2012   Microsoft     Operating System        176\n",
+      "Windows 7             Microsoft     Operating System        174\n",
+      "\n",
+      "174\n",
+      "Android 564\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Tabular data as nested dictionaries.\n",
+    "\"\"\"\n",
+    "\n",
+    "# Top 10 software products with the most vulnerabilities in 2017\n",
+    "# (through August).  From www.cvedetails.com.\n",
+    "vulnerabilities2017 = {\n",
+    "    'Android': {'vendor': 'Google',\n",
+    "                'type': 'Operating System',\n",
+    "                'number': 564},\n",
+    "    'Linux Kernel': {'vendor': 'Linux',\n",
+    "                     'type': 'Operating System',\n",
+    "                     'number': 367},\n",
+    "    'Imagemagick': {'vendor': 'Imagemagick',\n",
+    "                    'type': 'Application',\n",
+    "                    'number': 307},\n",
+    "    'IPhone OS': {'vendor': 'Apple',\n",
+    "                  'type': 'Operating System',\n",
+    "                  'number': 290},\n",
+    "    'Mac OS X': {'vendor': 'Apple',\n",
+    "                 'type': 'Operating System',\n",
+    "                 'number': 210},\n",
+    "    'Windows 10': {'vendor': 'Microsoft',\n",
+    "                   'type': 'Operating System',\n",
+    "                   'number': 195},\n",
+    "    'Windows Server 2008': {'vendor': 'Microsoft',\n",
+    "                            'type': 'Operating System',\n",
+    "                            'number': 187},\n",
+    "    'Windows Server 2016': {'vendor': 'Microsoft',\n",
+    "                            'type': 'Operating System',\n",
+    "                            'number': 183},\n",
+    "    'Windows Server 2012': {'vendor': 'Microsoft',\n",
+    "                            'type': 'Operating System',\n",
+    "                            'number': 176},\n",
+    "    'Windows 7': {'vendor': 'Microsoft',\n",
+    "                  'type': 'Operating System',\n",
+    "                  'number': 174}\n",
+    "}\n",
+    "\n",
+    "# Display vulnerabilities table\n",
+    "print(\"Product               Vendor        Type               Vulnerabilities\")\n",
+    "print(\"----------------------------------------------------------------------\")\n",
+    "\n",
+    "for product, values in vulnerabilities2017.items():\n",
+    "    row = \"{:21} {:13} {:18} {:8}\".format(product, values['vendor'], values['type'], values['number'])\n",
+    "    print(row)\n",
+    "\n",
+    "print(\"\")\n",
+    "\n",
+    "# Finding/selecting items\n",
+    "\n",
+    "# How many vulnerabilites does Windows 7 have?\n",
+    "print(vulnerabilities2017['Windows 7']['number'])\n",
+    "\n",
+    "# What product had the most vulnerabilities?\n",
+    "maxproduct = None\n",
+    "maxnumber = -1\n",
+    "\n",
+    "for product, values in vulnerabilities2017.items():\n",
+    "    if values['number'] > maxnumber:\n",
+    "        maxproduct = product\n",
+    "        maxnumber = values['number']\n",
+    "\n",
+    "print(maxproduct, maxnumber)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Example code for printing the contents of a dictionary to the console"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "dict_keys(['Warren', 'Rixner', 'Greiner'])\n",
+      "dict_values(['Joe', 'Scott', 'John'])\n",
+      "dict_items([('Warren', 'Joe'), ('Rixner', 'Scott'), ('Greiner', 'John')])\n",
+      "\n",
+      "['Warren', 'Rixner', 'Greiner']\n",
+      "['Joe', 'Scott', 'John']\n",
+      "[('Warren', 'Joe'), ('Rixner', 'Scott'), ('Greiner', 'John')]\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Example code for printing the contents of a dictionary to the console\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "NAME_DICT = {\"Warren\" : \"Joe\", \"Rixner\" : \"Scott\", \"Greiner\" : \"John\"}\n",
+    "\n",
+    "def run_dict_methods():\n",
+    "    \"\"\"\n",
+    "    Run some simple examples of calls to dictionary methods\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    # Note that these methods return an iterable object (similar to range())\n",
+    "    print(NAME_DICT.keys())\n",
+    "    print(NAME_DICT.values())\n",
+    "    print(NAME_DICT.items())\n",
+    "    print()\n",
+    "    \n",
+    "    # These objects can be converted to lists\n",
+    "    print(list(NAME_DICT.keys()))\n",
+    "    print(list(NAME_DICT.values()))\n",
+    "    print(list(NAME_DICT.items()))\n",
+    "\n",
+    "run_dict_methods()\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "def print_dict_keys(my_dict):\n",
+    "    \"\"\"\n",
+    "    Print the contents of a dictionary to the console\n",
+    "    in a readable form using the keys() method\n",
+    "    \"\"\"\n",
+    "    print(\"Printing dictionary\", my_dict, \"in readable form\")\n",
+    "    for key in my_dict:                                # note my_dict.keys() works here too\n",
+    "        print(\"Key =\", key, \"has value =\", my_dict[key])\n",
+    "        \n",
+    "        \n",
+    "def print_dict_items(my_dict):\n",
+    "    \"\"\"\n",
+    "    Print the contents of a dictionary to the console\n",
+    "    in a readable form using the items() method\n",
+    "    \"\"\"\n",
+    "    print(\"Printing dictionary\", my_dict, \"in readable form\")\n",
+    "    for (key, value) in my_dict.items():\n",
+    "        print(\"Key =\", key, \"has value =\", value)\n",
+    "\n",
+    "\n",
+    "def run_print_dict_examples():\n",
+    "    \"\"\"\n",
+    "    Run some examples of printing dictionaries to the console\n",
+    "    \"\"\"\n",
+    "    print()\n",
+    "    print_dict_keys(NAME_DICT)\n",
+    "    print()\n",
+    "    print_dict_items(NAME_DICT)\n",
+    "    \n",
+    "#run_print_dict_examples()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Create a list nested_list consisting of five empty lists"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Create a list nested_list consisting of five empty lists\n",
+    "\"\"\"\n",
+    "\n",
+    "# Add code here\n",
+    "nested_list = [[], [], [], [], []]\n",
+    "\n",
+    "# Tests\n",
+    "print(nested_list)\n",
+    "\n",
+    "# Output\n",
+    "#???"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Create a list nested_list of length 5 whose items are themselves lists consisting of 3 zeros"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Create a list nested_list of length 5 whose items \n",
+    "are themselves lists consisting of 3 zeros\n",
+    "\"\"\"\n",
+    "\n",
+    "# Add code here\n",
+    "nested_list = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]\n",
+    "\n",
+    "# Tests\n",
+    "print(nested_list)\n",
+    "\n",
+    "# Output\n",
+    "#???"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Using Comprehension"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[0, 0, 0]\n",
+      "[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Create a list zero_list consisting of 3 zeroes using a list comprehension\n",
+    "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions\n",
+    "\n",
+    "As a challenge, redo the previous problem using a nested list comprehension\n",
+    "https://docs.python.org/3/tutorial/datastructures.html#nested-list-comprehensions\n",
+    "\"\"\"\n",
+    "\n",
+    "# Add code here for a list comprehension\n",
+    "zero_list = [0 for dummy_idx in range(3)]\n",
+    "\n",
+    "# Add code here for nested list comprehension\n",
+    "nested_list = [[0 for dummy_idx1 in range(3)] for dummy_idx2 in range(5)]\n",
+    "\n",
+    "\n",
+    "# Tests\n",
+    "print(zero_list)\n",
+    "print(nested_list)\n",
+    "\n",
+    "# Output\n",
+    "#[0, 0, 0]\n",
+    "#[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Create nested list with comprehensions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10, 11], [12, 13, 14]]\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Select a specific item in a nested list\n",
+    "\"\"\"\n",
+    "\n",
+    "# Define a nested list of lists\n",
+    "nested_list = [[col + 3 * row for col in range(3)] for row in range(5)]\n",
+    "print(nested_list)\n",
+    "\n",
+    "# Add code to print out the item in this nested list with value 7\n",
+    "print(nested_list[2][1])\n",
+    "\n",
+    "# Output\n",
+    "#[[0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10, 11], [12, 13, 14]]\n",
+    "#7"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# reference issue involving a nested list"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0, 2, 0], [0, 2, 0], [0, 2, 0], [0, 2, 0], [0, 2, 0]]\n",
+      "[[0, 7, 0], [0, 7, 0], [0, 7, 0], [0, 7, 0], [0, 7, 0]]\n",
+      "[[0, 2, 0], [0, 2, 0], [0, 2, 0], [0, 2, 0], [0, 2, 0]]\n",
+      "[[0, 2, 0], [0, 2, 0], [0, 7, 0], [0, 2, 0], [0, 2, 0]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Analyze a reference issue involving a nested list\n",
+    "\"\"\"\n",
+    "\n",
+    "# Create a nested list\n",
+    "zero_list = [0, 2, 0]\n",
+    "nested_list = []\n",
+    "for dummy_idx in range(5):\n",
+    "    nested_list.append(zero_list)\n",
+    "print(nested_list)\n",
+    "    \n",
+    "# Update an entry to be non-zero\n",
+    "nested_list[2][1] = 7\n",
+    "print(nested_list)\n",
+    "\n",
+    "\n",
+    "# Erroneous output\n",
+    "#[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]\n",
+    "#[[0, 7, 0], [0, 7, 0], [0, 7, 0], [0, 7, 0], [0, 7, 0]]\n",
+    "\n",
+    "# Desired output\n",
+    "# [[0, 2, 0], [0, 2, 0], [0, 2, 0], [0, 2, 0], [0, 2, 0]]\n",
+    "# [[0, 2, 0], [0, 2, 0], [0, 7, 0], [0, 2, 0], [0, 2, 0]]\n",
+    "\n",
+    "\"\"\"\n",
+    "Solution - Analyze a reference issue involving a nested list\n",
+    "\"\"\"\n",
+    "\n",
+    "# Create a nested list\n",
+    "zero_list = [0, 2, 0]\n",
+    "nested_list = []\n",
+    "for dummy_idx in range(5):\n",
+    "    # nested_list.append(zero_list)\n",
+    "    nested_list.append(list(zero_list))    # Corrected code\n",
+    "print(nested_list)\n",
+    "    \n",
+    "# Update an entry to be non-zero\n",
+    "nested_list[2][1] = 7\n",
+    "print(nested_list)\n",
+    "\n",
+    "\n",
+    "# Erroneous output\n",
+    "#[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]\n",
+    "#[[0, 7, 0], [0, 7, 0], [0, 7, 0], [0, 7, 0], [0, 7, 0]]\n",
+    "\n",
+    "# Desired output\n",
+    "# [[0, 2, 0], [0, 2, 0], [0, 2, 0], [0, 2, 0], [0, 2, 0]]\n",
+    "# [[0, 2, 0], [0, 2, 0], [0, 7, 0], [0, 2, 0], [0, 2, 0]]\n",
+    "# Explanation\n",
+    "\n",
+    "# Line 13 is unintentionally updating all 5 entries in nested_list due to a referencing issue.\n",
+    "\n",
+    "# Line 9 is creating five references to the SAME object (the list zero_list) in nested_list.\n",
+    "# Thus, updating one reference to zero_list in nested_list in line 13 updates \n",
+    "# the other four references to zero_list in nested_list simultaneously. \n",
+    "\n",
+    "# To visualize this reference issue in Python Tutor, visit the URL https://goo.gl/hT4MM3.\n",
+    "# Note the entries in nested_list all refer to SAME list.  \n",
+    "\n",
+    "# The solution to this problem is to make a NEW copy of zero_list each  time append()\n",
+    "# is executed. To do this, simply replace zero_list by list(zero_list) in line 9\n",
+    "\n",
+    "# To visualize corrected code in Python Tutor, visit the URL https://goo.gl/4nifEg.\n",
+    "# Note that each entry in nested_list now refers to a DISTINCT list.  As a result,\n",
+    "# updates to one item in nested_list do not affect any other part of nested_list.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# list dictionaries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[{}, {}, {}, {}, {}]\n",
+      "[]\n",
+      "[{}]\n",
+      "[{}, {}]\n",
+      "[{'a': 1, 'b': 2}, {'a': 1, 'b': 2}]\n",
+      "[{'a': 1, 'b': 2}, {'a': 3, 'b': 2}]\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Create a list list_dicts of 5 empty dictionaries\n",
+    "\"\"\"\n",
+    "\n",
+    "# Add code here\n",
+    "list_dicts = [{}, {}, {}, {}, {}]\n",
+    "\n",
+    "# Tests\n",
+    "print(list_dicts)\n",
+    "\n",
+    "\"\"\"\n",
+    "Solution - Write a function dict_copies(my_dict, num_copies) that \n",
+    "returns a list consisting of num_copies copies of my_dict\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "# Add code here\n",
+    "def dict_copies(my_dict, num_copies):\n",
+    "    \"\"\"\n",
+    "    Given a dictionary my_dict and an integer num_copies, \n",
+    "    returns a list consisting of num_copies copies of my_dict.\n",
+    "    \"\"\"\n",
+    "    answer = []\n",
+    "    for idx in range(num_copies):\n",
+    "        answer.append(dict(my_dict))\n",
+    "    return answer\n",
+    "\n",
+    "\n",
+    "# Tests\n",
+    "print(dict_copies({}, 0))\n",
+    "print(dict_copies({}, 1))\n",
+    "print(dict_copies({}, 2))\n",
+    "\n",
+    "test_dict = dict_copies({'a' : 1, 'b' : 2}, 2)\n",
+    "print(test_dict)\n",
+    "\n",
+    "# Check for reference problem\n",
+    "test_dict[1][\"a\"] = 3\n",
+    "print(test_dict)\n",
+    "\n",
+    "\n",
+    "\n",
+    "# Output\n",
+    "#[]\n",
+    "#[{}]\n",
+    "#[{}, {}]\n",
+    "#[{'a': 1, 'b': 2}, {'b': 2, 'a': 1}]\n",
+    "#[{'b': 2, 'a': 1}, {'b': 2, 'a': 3}]\n",
+    "\n",
+    "# Note that you have a reference issue if the last line of output is\n",
+    "#[{'a': 3, 'b': 2}, {'b': 2, 'a': 3}]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# make_dict_lists"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{}\n",
+      "{0: []}\n",
+      "{0: [], 1: [0], 2: [0, 0], 3: [0, 0, 0], 4: [0, 0, 0, 0]}\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Write a function make_dict_lists(length) that returns a dictionary whose keys are in range(length) and whose\n",
+    "corresponding values are lists of zeros with length matching the key\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "# Add code here\n",
+    "def make_dict_lists(length):\n",
+    "    \"\"\"\n",
+    "    Given an integer length, return a dictionary whose keys\n",
+    "    lie in range(length) and whose corresponding values are \n",
+    "    lists of zeros with length matching the key\n",
+    "    \"\"\"\n",
+    "    list_dicts = {}\n",
+    "    for idx in range(length):\n",
+    "        list_dicts[idx] = [0] * idx\n",
+    "    return list_dicts\n",
+    "    # return {i:[0 for dummy_idx in range(i)] for i in range(length)} #Another solution\n",
+    "\n",
+    "\n",
+    "# Tests\n",
+    "print(make_dict_lists(0))\n",
+    "print(make_dict_lists(1))\n",
+    "print(make_dict_lists(5))\n",
+    "\n",
+    "\n",
+    "# Output\n",
+    "#{}\n",
+    "#{0: []}\n",
+    "#{3: [0, 0, 0], 0: [], 4: [0, 0, 0, 0], 1: [0], 2: [0, 0]}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Make dictinary from lists"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\"\"\"\n",
+    "Solution - Create a function make_grade_table(names, grades_list) \n",
+    "whose keys are the names in names and whose values are the\n",
+    "lists of grades in grades\n",
+    "\"\"\"\n",
+    "\n",
+    "\n",
+    "# Add code here\n",
+    "\n",
+    "def make_grade_table(name_list, grades_list):\n",
+    "    \"\"\"\n",
+    "    Given a list of name_list (as strings) and a list of grades\n",
+    "    for each name, return a dictionary whose keys are\n",
+    "    the names and whose associated values are the lists of grades\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    grade_table = {}\n",
+    "    for name, grades in zip(name_list, grades_list):\n",
+    "        grade_table[name] = grades\n",
+    "    return grade_table\n",
+    "        \n",
+    "\n",
+    "# Tests\n",
+    "print(make_grade_table([], []))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Matrix generation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\n",
+      "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]\n",
+      "[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48]\n",
+      "[0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72]\n",
+      "[0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96]\n",
+      "[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]\n",
+      "[0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144]\n",
+      "[0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154, 161, 168]\n",
+      "[0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192]\n",
+      "[0, 9, 18, 27, 36, 45, 54, 63, 72, 81, 90, 99, 108, 117, 126, 135, 144, 153, 162, 171, 180, 189, 198, 207, 216]\n",
+      "[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]\n",
+      "[0, 11, 22, 33, 44, 55, 66, 77, 88, 99, 110, 121, 132, 143, 154, 165, 176, 187, 198, 209, 220, 231, 242, 253, 264]\n",
+      "[0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276, 288]\n",
+      "[0, 13, 26, 39, 52, 65, 78, 91, 104, 117, 130, 143, 156, 169, 182, 195, 208, 221, 234, 247, 260, 273, 286, 299, 312]\n",
+      "[0, 14, 28, 42, 56, 70, 84, 98, 112, 126, 140, 154, 168, 182, 196, 210, 224, 238, 252, 266, 280, 294, 308, 322, 336]\n",
+      "[0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345, 360]\n",
+      "[0, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 272, 288, 304, 320, 336, 352, 368, 384]\n",
+      "[0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255, 272, 289, 306, 323, 340, 357, 374, 391, 408]\n",
+      "[0, 18, 36, 54, 72, 90, 108, 126, 144, 162, 180, 198, 216, 234, 252, 270, 288, 306, 324, 342, 360, 378, 396, 414, 432]\n",
+      "[0, 19, 38, 57, 76, 95, 114, 133, 152, 171, 190, 209, 228, 247, 266, 285, 304, 323, 342, 361, 380, 399, 418, 437, 456]\n",
+      "[0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480]\n",
+      "[0, 21, 42, 63, 84, 105, 126, 147, 168, 189, 210, 231, 252, 273, 294, 315, 336, 357, 378, 399, 420, 441, 462, 483, 504]\n",
+      "[0, 22, 44, 66, 88, 110, 132, 154, 176, 198, 220, 242, 264, 286, 308, 330, 352, 374, 396, 418, 440, 462, 484, 506, 528]\n",
+      "[0, 23, 46, 69, 92, 115, 138, 161, 184, 207, 230, 253, 276, 299, 322, 345, 368, 391, 414, 437, 460, 483, 506, 529, 552]\n",
+      "[0, 24, 48, 72, 96, 120, 144, 168, 192, 216, 240, 264, 288, 312, 336, 360, 384, 408, 432, 456, 480, 504, 528, 552, 576]\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "4900"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "NUM_ROWS = 25\n",
+    "NUM_COLS = 25\n",
+    "\n",
+    "# construct a matrix\n",
+    "my_matrix = []\n",
+    "for row in range(NUM_ROWS):\n",
+    "    new_row = []\n",
+    "    for col in range(NUM_COLS):\n",
+    "        new_row.append(row * col)\n",
+    "    my_matrix.append(new_row)\n",
+    " \n",
+    "# print the matrix\n",
+    "for row in my_matrix:\n",
+    "    print(row)\n",
+    "\n",
+    "\"\"\"\n",
+    "A matrix is square if it has the same number of rows and columns. The diagonal of a square matrix consists of those items in the matrix whose row and column indices are equal. Finally, the trace of a matrix is the sum of the items on the matrix's diagonal.\n",
+    "Write a function trace(matrix) trace(matrix) that takes a square matrix matrix matrix and returns the value of its trace.  Then use your implementation of trace() trace() and compute the value of trace(my_matrix) trace(my_matrix) for instances of my_matrix my_matrix as defined by the code snippet provided in the previous question.\n",
+    "\"\"\"\n",
+    "def trace(my_matrix):\n",
+    "    trace = 0\n",
+    "    for i in range(len(my_matrix)):\n",
+    "        for j in range(len(my_matrix[i])):\n",
+    "            if i == j:\n",
+    "                trace += my_matrix[i][j]\n",
+    "    return trace\n",
+    "trace(my_matrix)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{0: {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}, 1: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}, 2: {0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10, 6: 12, 7: 14, 8: 16}, 3: {0: 0, 1: 3, 2: 6, 3: 9, 4: 12, 5: 15, 6: 18, 7: 21, 8: 24}, 4: {0: 0, 1: 4, 2: 8, 3: 12, 4: 16, 5: 20, 6: 24, 7: 28, 8: 32}}\n",
+      "0 0 0 0 0 0 0 0 0 \n",
+      "0 1 2 3 4 5 6 7 8 \n",
+      "0 2 4 6 8 10 12 14 16 \n",
+      "0 3 6 9 12 15 18 21 24 \n",
+      "0 4 8 12 16 20 24 28 32 \n"
+     ]
+    }
+   ],
+   "source": [
+    "NUM_ROWS = 5\n",
+    "NUM_COLS = 9\n",
+    "\n",
+    "# construct a matrix\n",
+    "my_matrix = {}\n",
+    "for row in range(NUM_ROWS):\n",
+    "    row_dict = {}\n",
+    "    for col in range(NUM_COLS):\n",
+    "        row_dict[col] = row * col\n",
+    "    my_matrix[row] = row_dict\n",
+    "    \n",
+    "print(my_matrix)\n",
+    " \n",
+    "# print the matrix\n",
+    "for row in range(NUM_ROWS):\n",
+    "    for col in range(NUM_COLS):\n",
+    "        print(my_matrix[row][col], end = \" \")\n",
+    "    print()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_matrix == {2: {6: 12, 2: 4, 0: 0, 7: 14, 5: 10, 3: 6, 8: 16, 4: 8, 1: 2}, 4: {0: 0, 3: 12, 2: 8, 6: 24, 4: 16, 5: 20, 8: 32, 7: 28, 1: 4}, 1: {2: 2, 5: 5, 3: 3, 8: 8, 4: 4, 1: 1, 7: 7, 0: 0, 6: 6}, 3: {4: 12, 0: 0, 8: 24, 6: 18, 7: 21, 3: 9, 5: 15, 1: 3, 2: 6}, 0: {8: 0, 1: 0, 6: 0, 2: 0, 4: 0, 5: 0, 3: 0, 0: 0, 7: 0}}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "undefined.undefined.undefined"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

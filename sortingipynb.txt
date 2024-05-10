@@ -1,0 +1,104 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "range data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n",
+      "shuffled data: [6, 5, 9, 2, 8, 4, 7, 1, 3, 0]\n",
+      "sorted data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n",
+      "shuffled data: [4, 3, 2, 9, 5, 7, 8, 6, 1, 0]\n",
+      "data after sorted: [4, 3, 2, 9, 5, 7, 8, 6, 1, 0]\n",
+      "returned from sorted: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n",
+      "data tuple: (4, 3, 2, 9, 5, 7, 8, 6, 1, 0)\n",
+      "tuple after sort: (4, 3, 2, 9, 5, 7, 8, 6, 1, 0)\n",
+      "returned from sorted: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n",
+      "data dictionary: {4: 16, 3: 9, 2: 4, 9: 81, 5: 25, 7: 49, 8: 64, 6: 36, 1: 1, 0: 0}\n",
+      "returned from sorted: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "Example code to sort sequences.\n",
+    "\"\"\"\n",
+    "\n",
+    "import random\n",
+    "\n",
+    "# Easily create a list of numbers\n",
+    "data = list(range(10))\n",
+    "print(\"range data:\", data)\n",
+    "\n",
+    "# Randomly shuffle those numbers\n",
+    "random.shuffle(data)\n",
+    "print(\"shuffled data:\", data)\n",
+    "\n",
+    "# Sort the list of numbers\n",
+    "data.sort()\n",
+    "print(\"sorted data:\", data)\n",
+    "\n",
+    "# Shuffle it again\n",
+    "random.shuffle(data)\n",
+    "print(\"shuffled data:\", data)\n",
+    "\n",
+    "# Use sorted to sort the list\n",
+    "newdata = sorted(data)\n",
+    "print(\"data after sorted:\", data)\n",
+    "print(\"returned from sorted:\", newdata)\n",
+    "\n",
+    "# Convert to a tuple\n",
+    "datatup = tuple(data)\n",
+    "print(\"data tuple:\", datatup)\n",
+    "\n",
+    "# Sort the tuple of numbers\n",
+    "# datatup.sort()\n",
+    "print(\"tuple after sort:\", datatup)\n",
+    "\n",
+    "# Use sorted to sort the tuple\n",
+    "newdatatup = sorted(datatup)\n",
+    "print(\"returned from sorted:\", newdatatup)\n",
+    "\n",
+    "# Create a dictionary of squares (dictionary comprehension)\n",
+    "datamap = {key: key ** 2 for key in datatup}\n",
+    "print(\"data dictionary:\", datamap)\n",
+    "\n",
+    "# Use sorted to sort the dictionary\n",
+    "sortmap = sorted(datamap)\n",
+    "print(\"returned from sorted:\", sortmap)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
