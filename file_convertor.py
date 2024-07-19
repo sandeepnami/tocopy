@@ -1,28 +1,34 @@
 import pandas as pd
-from my_regexp_master import rename_extension
+from my_regexp_master import rename_extension, extract_file_name
 
 # Functions
 #convert to excel
-def to_excel(textcsv_path,delimitter = "~"):
+def to_excel(txtcsv_path,excel_path,delimitter = "~"):
     # Read the text file, treating all data as strings
-    df = pd.read_csv(textcsv_path, dtype=str,sep=delimitter)
+    df = pd.read_csv(txtcsv_path, dtype=str,sep=delimitter)
     # print(df.head())
-    converted_file_path = folder_path + "\\" + rename_extension(file_txtcsv, new_extension=".xlsx")
     # # Save the data to an Excel file, without an index
-    df.to_excel(converted_file_path, index=False)
-
-    print(f"Data from {textcsv_path} successfully loaded into {converted_file_path}.")
-
-
+    df.to_excel(excel_path, index=False)
+    print(f"Conversion to excel successful {extract_file_name(excel_path)}")
+    return df
 
 # Initialisation
 delimitter = "~"
 folder_path = r"C:\Users\ny4007991\OneDrive - Munich Re\Professional\Munich Re\Email Supp\File Processing\202407 July\MMG CC0363 June file attached"
 # Replace 'your_text_file.txt' with the actual path to your text file
-file_txtcsv = r"EQB0363BORD (17).txt"
-textcsv_path = folder_path + "\\" + file_txtcsv
+file = r"EQB0363BORD (17).txt"
+txtcsv_path = folder_path + "\\" + file
+
 
 
 # Main
-to_excel(textcsv_path)
+# Convert to Excel and data grooming
+excel_path = folder_path + "\\" + rename_extension(file, new_extension=".xlsx")
+excel_df = to_excel(txtcsv_path,excel_path,delimitter)
+excel_df["TX_EFFECTIVE_DATE"] = excel_df["TX_EFFECTIVE_DATE"].str.replace('-','')
+
+# Convert to txtcsv
+new_txtcsv_path = folder_path + "\\new_" + file
+excel_df.to_csv(new_txtcsv_path, sep=delimitter, index=False)
+print(f"Conversion to txtcsv successful {extract_file_name(new_txtcsv_path)}")
 
