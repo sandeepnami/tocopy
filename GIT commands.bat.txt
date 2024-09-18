@@ -1,0 +1,191 @@
+@REM The > operator only redirects stdout to a file. To redirect stderr to a file, you need to use the 2> operator. Here's how you can do it:
+@REM This command will redirect the stderr output of the git checkout main command to git_untracked.txt.
+git checkout main 2> git_untracked.txt
+
+@REM If you want to redirect both stdout and stderr to the same file, you can use the &> operator:
+@REM This command will redirect both stdout and stderr to git_untracked.txt.
+git checkout main &> git_untracked.txt
+    or
+git checkout main 2>&1 | Out-File git_untracked.txt
+@REM Create new branch and switch to it
+git checkout -b Jun12-branch
+
+@REM SSH related commands
+@REM Check if SSH conection is working
+ssh -T git@github.com
+@REM Check for existing SSH keys
+Get-ChildItem -Path ~/.ssh
+@REM Check the SSH key on your system
+Get-Content C:\Users\namis\.ssh\id_ed25519.pub
+@REM Generate a new SSH key
+ssh-keygen -t ed25519 -C "nami.sandeep@gmail.com"
+@REM Ensure ssh-agent is running
+Start-Service ssh-agent
+ssh-add C:\Users\namis\.ssh\id_ed25519
+ssh-add C:\Users\namis\.ssh\id_ed25519.pub
+
+@REM If you're not sure what your username is, you can find it by running the following command in PowerShell:
+[Environment]::UserName
+
+@REM If git reset is not unstaging all files, it's possible that those files have already been committed in a previous commit. In this case, you would need to use git reset with a commit hash to move HEAD back to the commit before those files were added.
+@REM Find the commit hash: Use the git log command to find the hash of the commit before the files were added. The hash is the long string of numbers and letters at the beginning of each commit.
+git log > git_log.txt
+@REM Reset to the commit: Once you have the commit hash, you can reset to it with the git reset command. For example, if your commit hash is abc123, you would use:
+@REM This command will move HEAD back to the specified commit, unstaging any commits that came after it.
+@REM Remember to replace abc123 with your actual commit hash in this command.
+@REM Eg: a34d9d5bb3b74392207a9ebb2343f9b67a3997f7
+git reset abc123
+@REM If you just want to unstage the last commit, you can use HEAD~1 as the commit hash:
+@REM This command will unstage the last commit. Be careful with this command, as it will not change any of your files, but any changes that were committed will be unstaged.
+git reset HEAD~1
+
+@REM Hard reset to make sure only one file is pushed
+@REM Stash the untracked files: If you want to keep the changes but don't want to commit them yet, you can stash them
+git stash -u
+
+@REM find "C:\Users\namis\OneDrive\Professional\Technology": This part of the command would start a search in the directory specified (in this case, "C:\Users\namis\OneDrive\Professional\Technology").
+@REM -name "*.py": This option would limit the search to files that end with ".py", which are typically Python scripts.
+@REM -exec cp {} . \;: This part of the command would execute the cp (copy) command for each file found. The {} placeholder represents the current file, and . represents the current directory. So, this command would copy each found file to the current directory.
+find "C:\Users\namis\OneDrive\Professional\Technology" -name "*.py" -exec cp {} . \;
+
+@REM This command is a PowerShell command that is used to find and copy files. Here's a breakdown of what each part does:
+@REM Get-ChildItem -Path "C:\Users\namis\OneDrive\Professional\Technology" -Filter "*.py" -Recurse: This part of the command is used to get all items in the specified path that match the filter. In this case, it's looking for all Python files (files ending in .py) in the directory C:\Users\namis\OneDrive\Professional\Technology and all its subdirectories. The -Recurse flag tells Get-ChildItem to search in all subdirectories.
+@REM |: This is the pipe operator. It takes the output of the command on its left and uses it as the input for the command on its right.
+@REM ForEach-Object { Copy-Item $_.FullName -Destination "." }: This part of the command is executed for each object (in this case, each file) outputted by the Get-ChildItem command. $_ is a placeholder that represents the current object. Copy-Item $_.FullName -Destination "." copies the current file to the current directory (.).
+@REM So, in summary, this command finds all Python files in the directory C:\Users\namis\OneDrive\Professional\Technology and its subdirectories, and copies them to the current directory.
+Get-ChildItem -Path "C:\Users\namis\OneDrive\Professional\Technology" -Filter "*.py" -Recurse | ForEach-Object { Copy-Item $_.FullName -Destination "." }
+
+@REM This command is a PowerShell command that is used to find and delete files. 
+Get-ChildItem -Path "." -Filter "*.py" | Remove-Item
+
+@REM To Know current active branch
+git branch
+
+@REM After adding files to check what files will be ready for stage
+git status > git_status.txt 
+
+@REM Sometimes this error can occur if the size of your files is too large for Git to handle with its default settings. You can increase the Git buffer size with the following command:
+@REM This command increases the Git buffer size to 500 MB. You can adjust the number to fit your needs.
+git config --global http.postBuffer 524288000
+
+@REM Check your SSH connection: If you're using SSH to connect to the remote repository, make sure your SSH keys are set up correctly. You can test your SSH connection with the following command:
+@REM Replace git@github.com with your Git repository's SSH URL. You should see a message saying that you've successfully authenticated.
+ssh -T git@github.com
+
+@REM Check the remote repository Make sure the remote repository exists and you have the correct permissions to access it. You can check the remote repository with the following command:
+@REM This command will display the URLs of your remote repositories. Make sure the URLs are correct and you have the correct permissions to access them
+git remote -v
+
+
+@REM The "Filename too long" error in Git usually occurs because there is a limit to the length of a filename that Git on Windows can handle. The limit is 4096 characters for a full path under Linux, but only 260 characters under Windows.
+git config --system core.longpaths true
+    or
+git config core.longpaths true
+
+@REM Check what's being added: Before running git add ., you can run git status to see which files will be added. If there are files that you don't need to track, you can add them to a .gitignore file.
+git status > git_status.txt
+
+@REM If you've added files to the staging area with git add and you want to unstage them, you can use the git reset command.
+git reset
+
+@REM To copy branch of a repository
+git clone -b 1-start-here https://github.com/emarco177/ice_breaker.git
+@REM In case above command is getting SSL error, use below command
+git -c http.sslVerify=false clone -b 1-start-here https://github.com/emarco177/ice_breaker.git
+
+<<<<<<< HEAD
+@REM git how to add only newly added directory
+git add "C:\Users\namis\OneDrive\Professional\Technology\DataScience\AI\Generative AI\LLM"
+
+@REM ::To create Git repositories from a specific folder, you can use the command line. Here's a step-by-step guide:
+@REM Navigate to the folder you want to turn into a Git repository. For example, if your folder is named "Technology" and it's located directly under the "C:\Users\namis\OneDrive\Professional" directory, you would use the following command:
+@REM Initialize a new Git repository in this folder:
+@REM This will create a new Git repository in the "Technology" folder. The repository will be empty at this point. You can start adding files to it using the git add command, and then commit your changes using the git commit command.
+@REM Please note that this will create a local Git repository. If you want to push your repository to a remote server like GitHub, you'll need to create a new repository on GitHub and then add it as a remote repository using the git remote add command.
+cd "C:\Users\namis\OneDrive\Professional\Technology"
+@REM Stage all changes in the directory
+git add .
+@REM Commit the staged changes with the message "Initial commit"
+git commit -m "Initial commit"
+@REM This script does the following in Linux:
+@REM Add a new remote repository with the URL https://github.com/sandeepnami/Technology.git
+git remote add origin https://github.com/sandeepnami/Technology.git
+@REM Push the commits in the main branch to the remote repository
+git push -u origin main
+
+
+
+@REM This is a powershell script to add subdirectories and all files into a git repository.
+FOR /D %%G in ("*") DO (
+    @REM Change the current directory to the subdirectory being processed.
+    cd %%G
+    @REM Initialize a new Git repository in the current directory.
+    git init
+    REM Stage all files in the current directory, adding them to the Git repository.
+    git add .
+    @REM Create a new commit with the staged files. The commit message is "Initial commit".
+    git commit -m "Initial commit"
+    @REM Rename the current branch to "main".
+    git branch -M main
+    @REM Add a new remote repository with the name "origin". Replace <your-repository-url> with the URL of your actual repository.
+    @REM This is a placeholder comment, replace <your-repository-url> with your actual repository URL.
+    git remote add origin https://github.com/sandeepnami/Technology.git
+    @REM Push the commits in the "main" branch to the "origin" remote repository.
+    git push -u origin main
+    @REM Change the current directory back to the parent directory, so that the next iteration of the loop can process the next subdirectory.
+    cd ..
+)
+    OR
+Get-ChildItem -Recurse | Where-Object { $_.Length -lt 3MB } | ForEach-Object { git add $_.FullName }
+git commit -m "files less than 3mb"
+git push -u origin Jun12-branch
+
+@REM Stage all files less than 3MB in size in batches
+@REM # The @echo off command in a batch (.bat) file is used to prevent the commands in the script from being printed to the console before they are executed.
+@echo off
+cd "C:\Users\namis\OneDrive\Professional\Technology"
+for /R %%F in (*) do (
+    if %%~zF LSS 3145728 (
+        git add "%%F"
+        git commit -m "Added %%F"
+    )
+)
+    OR
+$files = Get-ChildItem -Recurse | Where-Object { $_.Length -lt 3MB }
+$batchSize = 100
+for ($i = 0; $i -lt $files.Count; $i += $batchSize) {
+    $batch = $files[$i..($i+$batchSize-1)]
+    $batch | ForEach-Object { git add $_.FullName }
+    git commit -m "Add batch of files"
+}
+@REM Push the commits to the remote repository
+git push origin main
+
+
+
+
+@REM Add files in smaller batches: Instead of adding all files at once with git add ., you can add them in smaller batches. For example, you can add all Python files with git add *.py, or add a specific directory with git add directory_name/.
+cd "C:\Users\namis\OneDrive\Professional\Technology\DataScience\AI\Generative AI"
+git add *.py 
+git commit -m "PY files"
+git push origin main
+
+@REM Stage the changes in the specific folder
+git add ".\DataScience\AI\Generative AI\LLM"  
+git commit -m "Directory LLM Commit"
+git push -u origin ju12-branch
+
+@REM To clone a specific directory from a GitHub repository, you can use the sparse-checkout feature of Git.
+cd to the directory(say Temp)
+git init
+git remote add origin https://github.com/sandeepnami/Technology.git
+git config core.sparseCheckout true
+@REM Folder Python/Python 101/06_core-python-implementing-iterators-iterables-collections
+echo "Python/Python 101/06_core-python-implementing-iterators-iterables-collections/" >> .git/info/sparse-checkout
+git fetch --depth=1
+@REM If you get SSL certificate problem: unable to get local issuer certificate
+git -c http.sslVerify=false fetch --depth=1
+        OR
+git -c http.sslVerify=false fetch --all
+git config core.sparseCheckout true
+git checkout main  # or use the default branch name of the remote repository
