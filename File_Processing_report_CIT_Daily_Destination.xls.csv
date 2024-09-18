@@ -1,0 +1,49 @@
+Company_Name,Company_Code,MFI,Last_File_Processed,Latest_File_Recieved_on_ftp,FTP_PATH,Product_Code,File_Type,File_Desc,File Frequency,COM_Name,Overdue Status(Month/Year/Quarter,COMMENTS
+Allied Insurance,27,1,7/1/2024,9/3/2024,RPS/rp0027/RT0027FT.TXT,EQB,Location Trans,Allied- 1000428,Monthly,Barbara Stewart,-2,Files not processed for more than 2 months and less than 4 months
+American Alternative Ins Corp,192,3,7/1/2024,6/3/2024,CCS/rp0192b/RP1469_MRE.txt,EQB,Location Trans,Munich Many,Monthly,Susan Hill,-2,Files not processed for more than 2 months and less than 4 months
+Andover Insurance Company,178,1,5/1/2024,4/4/2024,RPS/RP0178/RP0178-P-ACNE,EQB,Location Trans,New England- 1000112,Monthly,Heather Gallant,-4,Files not processed for more than 2 months and less than 4 months
+Andover Insurance Company,178,2,5/1/2024,9/3/2024,RPS/RP0178/RP0178-P-AC,EQB,Location Trans,11/26/4637,Monthly,Heather Gallant,-4,Files not processed for more than 2 months and less than 4 months
+Bridgeway Insurance Company,5119,1,7/1/2024,6/3/2024,CCS/rp0192b/RP1469_MRE.txt,EQB,Location Trans,Munich Many,Monthly,Susan Hill,-2,Files not processed for more than 2 months and less than 4 months
+Farmland-Nationwide Agribusiness,306,3,7/1/2024,9/3/2024,RPS/rp0027/RT0027FT.TXT,EQB,Location Trans,,Monthly,Barbara Stewart,-2,Files not processed for more than 2 months and less than 4 months
+Farm Family Insurance Companies,282,3,7/1/2024,8/27/2024,RPS/rp0282/EBBRD0282CPP.txt,EQB,Location Trans,Wineries,Monthly,Laura Holley,-2,Files not processed for more than 2 months and less than 4 months
+Integrity Insurance Company,1074,1,7/1/2024,8/31/2024,RPS/grng309/EBLOCFILE.txt,EQB,Location Trans,10/9/4639,Monthly,Melanie Humphrey,-2,Files not processed for more than 2 months and less than 4 months
+Munich SID Alt Mkt Risk AMH-AFH-ASH,2493,3,7/1/2024,6/3/2024,CCS/rp0192b/RP1469_MRE.txt,EQB,Location Trans,Munich Many,Monthly,Terri Gillespie,-2,Files not processed for more than 2 months and less than 4 months
+Lexington Risk Specialists,145,11,7/1/2024,9/1/2024,CCS/rp0192/EB0192LOC.txt,EQB,Location Trans,Glatfelter,Monthly,Jeanine Kelsey,-2,Files not processed for more than 2 months and less than 4 months
+"Munich Reinsurance America, Inc",1469,3,7/1/2024,6/3/2024,CCS/rp0192b/RP1469_MRE.txt,EQB,Location Trans,Munich Many,Monthly,Susan Hill,-2,Files not processed for more than 2 months and less than 4 months
+Nationwide Insurance Co,96,4,7/1/2024,9/3/2024,RPS/rp0027/RT0027FT.TXT,EQB,Location Trans,3/17/4639,Monthly,Barbara Stewart,-2,Files not processed for more than 2 months and less than 4 months
+National Union Fire Ins Co of Pitts,4746,1,7/1/2024,9/1/2024,CCS/rp0192/EB0192LOC.txt,EQB,Location Trans,AIG DIV 80,Monthly,Jeanine Kelsey,-2,Files not processed for more than 2 months and less than 4 months
+PESLIC - Princeton E and S Ins Co,1468,3,7/1/2024,6/3/2024,CCS/rp0192b/RP1469_MRE.txt,EQB,Location Trans,Munich Many,Monthly,Susan Hill,-2,Files not processed for more than 2 months and less than 4 months
+PESLIC Princeton E&S Munich SID Alt,2492,3,7/1/2024,6/3/2024,CCS/rp0192b/RP1469_MRE.txt,EQB,Location Trans,Munich Many,Monthly,Susan Hill,-2,Files not processed for more than 2 months and less than 4 months
+The Hanover Ins Group - Hanover,23,6,7/1/2024,9/12/2024,CCS/rp0023/RP0023_CPP.txt,EQB,Location Trans,NOVA- 1000785,Monthly,Laura Holley,-2,Files not processed for more than 2 months and less than 4 months
+The Hanover Ins Group - Hanover,23,5,7/1/2024,9/12/2024,CCS/rp0023/RP0023_CPP.txt,EQB,Location Trans,CPP- 1000785,Monthly,Laura Holley,-2,Files not processed for more than 2 months and less than 4 months
+Umialik Insurance Company,2347,1,6/1/2024,9/1/2024,CCS/rp0399/RP0399.txt,EQB,Location Trans,Umialik,Monthly,Frances Fairchild,-3,Files not processed for more than 2 months and less than 4 months
+Western National Insurance Group,399,2,6/1/2024,9/1/2024,CCS/rp0399/RP0399.txt,EQB,Location Trans,Point File- 1000508,Monthly,Frances Fairchild,-3,Files not processed for more than 2 months and less than 4 months
+American Coastal Insurance Company,2181,2,8/1/2024,6/21/2024,RPS/rp2445/EB2181LOC.xls,EQB,Location Trans,American Coastal- 1002064,Monthly,Susan Hill,-1,Processed and all set in the system
+Berkshire Hathaway Direct Insurance,3605,1,8/1/2024,9/1/2024,RPS/rp1372/EB3605LOC_BerkshireHathawaytoHSB.TXT,EQB,Location Trans,,Monthly,Jennifer Graham,-1,Processed and all set in the system
+E&S / Specialty,174,1,9/1/2017,Files recieved via Email,CIT@HSB./Automated from CC/QDLSMONTHENDHARTFORD.DTA,EQB,Location Trans,Scottsdale,Monthly,Charlotte Sanders,-84,Files not processed > 4 months
+Central Mutual Insurance Co.,66,1,4/1/2024,5/10/2024,RPS/rp0066/RP0066FP.txt,EQB,Location Trans,7/26/4638,Monthly,Heather Gallant,-5,Files not processed > 4 months
+Erie Insurance Group,13,2,8/1/2024,9/2/2024,RPS/rp0013/HSBPOL_CLION.pgp,EQB,Location Trans,CLION,Monthly,Frances Fairchild,-1,Processed and all set in the system
+Federated Insurance Group,134,1,4/1/2024,9/4/2024,RPS/rp0134/RP134RE1.TXT,EQB,Location Trans,Machine Shop,Monthly,Laidis Derosier,-5,Files not processed > 4 months
+Everest National Insurance Company,1036,1,8/1/2024,9/6/2024,CCS/rp1036/cc1036_hsb_output.zip,EQB,Location Trans,3/21/4651,Monthly,Philippa Keilty,-1,Processed and all set in the system
+Falls Lake National Insurance Co.,5177,1,8/1/2024,9/9/2024,RPS/rp2628/INSP_HSBReport.xls,EQB,Location Trans,1004950  was CIBA 1002715 CC 2628,Monthly,Philippa Keilty,-1,Processed and all set in the system
+Erie Insurance Group,13,1,8/1/2024,9/3/2024,RPS/rp0013/HSBPOL.pgp,EQB,Location Trans,"1000875, 1000876",Monthly,Frances Fairchild,-1,Processed and all set in the system
+General Star National Insurance Co,1302,1,8/1/2024,9/11/2024,RPS/rp1302/RP1302-P-POL.txt,EQB,Location Trans,11/16/4640,Monthly,Christopher Short,-1,Processed and all set in the system
+Federated Insurance Group,134,2,8/1/2024,9/3/2024,RPS/rp0134/RP134RE2.TXT,EQB,Location Trans,Select Express,Monthly,Laidis Derosier,-1,Processed and all set in the system
+IMT Insurance Company,462,1,8/1/2024,9/9/2024,RPS/imti462/rp0462fp.txt,EQB,Location Trans,Treaty Not listed the File data,Monthly,Frances Fairchild,-1,Processed and all set in the system
+Lloyd`s AmRisc,2445,2,8/1/2024,9/12/2024,RPS/rp2445/EB2445LOC.xls,EQB,Location Trans,########,Monthly,Kathy Kritschil,-1,Processed and all set in the system
+Grange Mutual Casualty Company,309,1,8/1/2024,8/31/2024,RPS/grng309/EBLOCFILE.txt,EQB,Location Trans,1000215 1000682,Monthly,Melanie Humphrey,-1,Processed and all set in the system
+Intact Insurance (OneBeacon),400,8,8/1/2024,9/3/2024,RPS/rp0400/RP00400_Monthly_Advantage_OB.txt,EQB,Location Trans,1/2/4644,Monthly,Mary Doherty,-1,Processed and all set in the system
+IMT Insurance Company,462,3,8/1/2024,9/9/2024,RPS/imti462/EB0462LOC.txt,EQB,Location Trans,BOP- 1002258,Monthly,Frances Fairchild,-1,Processed and all set in the system
+National American Insurance Company,209,1,8/1/2024,8/30/2024,RPS/rp0209/EB0209LOC,EQB,Location Trans,NAICO- 1000329,Monthly,Christopher Short,-1,Processed and all set in the system
+Penn National Insurance Company,51,5,8/1/2024,9/6/2024,RPS/rp0051/RP0051_P_MLIM3PN_EQBKDN.pgp,EQB,Location Trans,Resource- 1000268,Monthly,Macee Buckley,-1,Processed and all set in the system
+Penn National Insurance Company,51,6,8/1/2024,9/6/2024,RPS/rp0051/RP0051_P_MLIM3PN_CPPEQBD.pgp,EQB,Location Trans,CPP- 1000959,Monthly,Macee Buckley,-1,Processed and all set in the system
+Preferred Mutual Insurance Company,331,1,8/1/2024,8/30/2024,RPS/rp0331/RP0331.txt,EQB,Location Trans,"1000286, 1000287",Monthly,Heather Gallant,-1,Processed and all set in the system
+State Automobile Mutual Ins.,67,3,8/1/2024,8/31/2024,RPS/rp0067/RP0067-P-FARM.txt,EQB,Location Trans,Legacy Farm- 1001938,Monthly,Frances Fairchild,-1,Processed and all set in the system
+State Farm Fire & Casualty Co.,77,2,8/1/2024,9/12/2024,RPS/rp0077/rp0077.P.L.pgp,EQB,Location Trans,Location- 1000647,Monthly,Melanie Humphrey,-1,Processed and all set in the system
+The Hanover Ins Group - Hanover,23,4,8/1/2024,9/11/2024,CCS/rp0023/RP0023_BOP.txt,EQB,Location Trans,BOP- 1000299,Monthly,Laura Holley,-1,Processed and all set in the system
+State Farm Fire & Casualty Co - FO,2289,1,8/1/2024,9/12/2024,RPS/rp0077/rp0077.P.L.pgp,EQB,Location Trans,Farmowners,Monthly,Melanie Humphrey,-1,Processed and all set in the system
+Southern Mutual Church Insurance Co,1363,1,8/1/2024,9/1/2024,CCS/rp1363/RP1363.txt,EQB,Location Trans,3/22/4641,Monthly,Heather Gallant,-1,Processed and all set in the system
+Westfield Companies - Farm,2151,1,8/1/2024,9/6/2024,RPS/rp0063/hsb_0063.txt,EQB,Location Trans,Farm- 1001326,Monthly,Barbara Stewart,-1,Processed and all set in the system
+West Bend Insurance Company,118,2,8/1/2024,9/11/2024,CCS/rp0118/EB0118LOC.txt,EQB,Location Trans,New Policy System feed-1000225,Monthly,Amy Cooper,-1,Processed and all set in the system
+Western World Insurance Group,2242,1,8/1/2024,9/12/2024,CCS/rp2242/EB2242LOC.txt,EQB,Location Trans,1002526 CBA &1005109 Garage,Monthly,Jeanine Kelsey,-1,Processed and all set in the system
+Westfield Companies,63,1,8/1/2024,9/6/2024,RPS/rp0063/hsb_0063.txt,EQB,Location Trans,Commercial EB- 1001276,Monthly,Barbara Stewart,-1,Processed and all set in the system
